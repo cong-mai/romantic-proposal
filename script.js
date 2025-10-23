@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize music functionality
     initializeMusic();
     
-    // Auto-play music immediately
-    autoPlayMusic();
+    // Create a subtle start overlay for music
+    createMusicStartOverlay();
 });
 
 // Function to show the "Yes" response
@@ -404,7 +404,100 @@ function stopRomanticMusic() {
     console.log("🎵 Music stopped");
 }
 
-// Auto-play setup removed - music plays immediately
+// Create a subtle music start overlay
+function createMusicStartOverlay() {
+    const overlay = document.createElement('div');
+    overlay.className = 'music-start-overlay';
+    overlay.innerHTML = `
+        <div class="music-start-content">
+            <div class="music-icon">🎵</div>
+            <p>Click anywhere to start the romantic music</p>
+        </div>
+    `;
+    
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        cursor: pointer;
+        animation: fadeIn 0.5s ease-out;
+    `;
+    
+    // Add styles for the content
+    const style = document.createElement('style');
+    style.textContent = `
+        .music-start-content {
+            text-align: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .music-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .music-start-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add click event to start music and remove overlay
+    overlay.addEventListener('click', function() {
+        autoPlayMusic();
+        overlay.style.animation = 'fadeOut 0.5s ease-out forwards';
+        setTimeout(() => {
+            if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+            }
+        }, 500);
+    });
+    
+    // Add fadeOut animation
+    const fadeOutStyle = document.createElement('style');
+    fadeOutStyle.textContent = `
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(fadeOutStyle);
+    
+    document.body.appendChild(overlay);
+    
+    // Auto-remove overlay after 3 seconds if not clicked
+    setTimeout(() => {
+        if (overlay.parentNode) {
+            overlay.style.animation = 'fadeOut 0.5s ease-out forwards';
+            setTimeout(() => {
+                if (overlay.parentNode) {
+                    overlay.parentNode.removeChild(overlay);
+                }
+            }, 500);
+        }
+    }, 3000);
+}
 
 // Auto-play music function
 function autoPlayMusic() {
