@@ -209,7 +209,7 @@ function showRomanticMessage(message) {
         font-weight: 600;
         z-index: 2000;
         text-align: center;
-        animation: messageAppear 3s ease-out forwards;
+        animation: messageAppear 10s ease-out forwards;
     `;
     document.body.appendChild(messageDiv);
     
@@ -218,7 +218,7 @@ function showRomanticMessage(message) {
         if (messageDiv.parentNode) {
             messageDiv.parentNode.removeChild(messageDiv);
         }
-    }, 3000);
+    }, 4000);
     
     // Add message animation CSS
     const style = document.createElement('style');
