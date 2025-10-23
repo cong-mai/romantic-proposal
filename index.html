@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend? 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Floating Hearts Background -->
+        <div class="hearts">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="greeting">                
+                <h1 class="title">My Dear Truc Mai</h1>
+                <p class="subtitle">I have something special to tell you...</p>
+            </div>
+
+            <div class="message-container">
+                <div class="message">
+                    <p class="romantic-text">
+                        From the moment we met, you have brought so much joy and light into my life. 
+                        I enjoy to spend time with you. You are someone I want to share my dreams with, 
+                        someone I want to grow with, someone I want to love.
+                    </p>
+                    
+                </div>
+
+                <div class="question-container">
+                    <h2 class="question">Will you be my girlfriend?</h2>
+                    <div class="buttons">
+                        <button class="btn yes-btn" onclick="showYesResponse()">Yes! 💕</button>
+                        <button class="btn no-btn" onclick="showNoResponse()">Let me think...</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yes Response -->
+            <div class="response yes-response" id="yesResponse">
+                <div class="celebration">
+                    <h2>🎉 YAY! 🎉</h2>
+                    <p>You've made me the happiest person in the world!</p>
+                    <div class="fireworks">
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Response -->
+            <div class="response no-response" id="noResponse">
+                <div class="understanding">
+                    <h2>I understand 💙</h2>
+                    <p>I respect your feelings completely. I know that you not ready to be my girlfriend yet.</p>
+                    <p>Thank you for being honest with me. You're still one of the most 
+                    wonderful people I know.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Romantic Quote -->
+        <div class="quote">
+            <p>"I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more"</p>
+            <span class="author">- Angelita Lim</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
